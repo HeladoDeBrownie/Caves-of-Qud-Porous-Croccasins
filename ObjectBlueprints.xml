@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <objects>
     <object Name="Croccasins" Load="Merge">
-        <part Name="Render" DisplayName="&amp;gc&amp;Kr&amp;go&amp;Kc&amp;gc&amp;Ga&amp;Ks&amp;gi&amp;Kn&amp;gs"/>
+        <part Name="Render" DisplayName="&amp;gc&amp;Kr&amp;go&amp;Kc&amp;gc&amp;Ga&amp;Ks&amp;gi&amp;Kn&amp;gs" Tile="croccasins-crocs.png" ColorString="&amp;g" DetailColor="K"/>
         <part Name="Description" Short="Like their namesake, they are scaly and temperamental; unlike their namesake, they are porous and worn on one's feet."/>
     </object>
 </objects>
