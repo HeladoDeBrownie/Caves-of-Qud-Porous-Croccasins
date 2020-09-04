@@ -1,10 +1,21 @@
+using System;
+
 namespace XRL.World.Parts
 {
-    [System.Serializable]
+    [Serializable]
     public class helado_PorousCroccasins_Porous : IPart
     {
         public const string POROUS_DESCRIPTION = "Like their namesake, they are scaly and temperamental; unlike their namesake, they are porous and worn on one's feet.";
         public int Chance = 10;
+        public static Random RandomSource = null;
+
+        public helado_PorousCroccasins_Porous()
+        {
+            if (RandomSource == null)
+            {
+                RandomSource = XRL.Rules.Stat.GetSeededRandomGenerator(Seed: "helado_PorousCroccasins");
+            }
+        }
 
         public override bool WantEvent(int id, int cascade)
         {
@@ -29,7 +40,7 @@ namespace XRL.World.Parts
 
         public override bool HandleEvent(ObjectCreatedEvent @event)
         {
-            if (!Chance.in100())
+            if (!Chance.in100(RandomSource))
             {
                 ParentObject.RemovePart(this);
             }
