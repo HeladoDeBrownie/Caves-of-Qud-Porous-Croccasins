@@ -2,7 +2,7 @@
     "workshopId": 1756436754,
     "Title": "Porous Croccasins",
     "Description": "Porous Croccasins is a Caves of Qud mod that adds the possibility of croccasins coming with holes in them. There is no deliberate mechanical benefit or drawback to this.\n\nSee spoilers and more at: https://github.com/HeladoDeBrownie/Caves-of-Qud-Porous-Croccasins",
-    "Tags": "Armor,Cosmetic,Item",
+    "Tags": "Armor,Cosmetic,Item,Script",
     "ImagePath": "preview.png",
     "Visibility": "2"
 }
