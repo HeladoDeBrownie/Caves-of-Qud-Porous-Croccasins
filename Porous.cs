@@ -29,8 +29,6 @@ namespace XRL.World.Parts
 
         public override bool HandleEvent(ObjectCreatedEvent @event)
         {
-            AddPlayerMessage("DEBUG: created");
-
             if (!Chance.in100())
             {
                 ParentObject.RemovePart(this);
