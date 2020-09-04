@@ -5,6 +5,7 @@ namespace XRL.World.Parts
     [Serializable]
     public class helado_PorousCroccasins_Porous : IPart
     {
+        public const string POROUS_TILE = "helado_croccasins-porous.png";
         public const string POROUS_DESCRIPTION = "Like their namesake, they are scaly and temperamental; unlike their namesake, they are porous and worn on one's feet.";
         public static Random RandomSource = null;
         public int Chance = 100;
@@ -47,6 +48,12 @@ namespace XRL.World.Parts
                 ParentObject.RemovePart(this);
             }
 
+            return true;
+        }
+
+        public override bool Render(RenderEvent @event)
+        {
+            @event.Tile = POROUS_TILE;
             return true;
         }
 
