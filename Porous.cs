@@ -1,21 +1,23 @@
 using System;
+using static System.String;
 
 namespace XRL.World.Parts
 {
     [Serializable]
-    public class helado_PorousCroccasins_Porous : IPart
+    public class helado_PorousCroccasins_AlternativeRender : IPart
     {
-        public const string POROUS_TILE = "helado_croccasins-porous.png";
-        public const string POROUS_DESCRIPTION = "Like their namesake, they are scaly and temperamental; unlike their namesake, they are porous and worn on one's feet.";
         public static Random RandomSource = null;
+        public string Tile = null;
+        public string Adjective = null;
+        public string Description = null;
         public int Chance = 100;
 
-        public helado_PorousCroccasins_Porous()
+        public helado_PorousCroccasins_AlternativeRender()
         {
             if (RandomSource == null)
             {
                 RandomSource = XRL.Rules.Stat.GetSeededRandomGenerator(
-                    Seed: "helado_PorousCroccasins"
+                    Seed: "helado_PorousCroccasins_AlternativeRender"
                 );
             }
         }
@@ -31,13 +33,21 @@ namespace XRL.World.Parts
 
         public override bool HandleEvent(GetDisplayNameEvent @event)
         {
-            @event.AddAdjective("{{g-K sequence|porous}}");
+            if (!IsNullOrEmpty(Adjective))
+            {
+                @event.AddAdjective(Adjective);
+            }
+
             return true;
         }
 
         public override bool HandleEvent(GetShortDescriptionEvent @event)
         {
-            @event.Base.Clear().Append(POROUS_DESCRIPTION);
+            if (!IsNullOrEmpty(Description))
+            {
+                @event.Base.Clear().Append(Description);
+            }
+
             return true;
         }
 
@@ -53,14 +63,23 @@ namespace XRL.World.Parts
 
         public override bool Render(RenderEvent @event)
         {
-            @event.Tile = POROUS_TILE;
+            if (!IsNullOrEmpty(Tile))
+            {
+                @event.Tile = Tile;
+            }
+
             return true;
         }
 
-        public override bool SameAs(IPart part)
+        public override bool SameAs(IPart iPart)
         {
+            var part = iPart as helado_PorousCroccasins_AlternativeRender;
+
             return
-                Chance == (part as helado_PorousCroccasins_Porous).Chance &&
+                Tile == part.Tile &&
+                Adjective == part.Adjective &&
+                Description == part.Description &&
+                Chance == part.Chance &&
                 base.SameAs(part);
         }
     }

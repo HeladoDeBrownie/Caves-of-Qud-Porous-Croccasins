@@ -1,5 +1,11 @@
 <objects>
     <object Name="Croccasins" Load="Merge">
-        <part Name="helado_PorousCroccasins_Porous" Chance="10" />
+        <part
+            Name="helado_PorousCroccasins_AlternativeRender"
+            Tile="helado_croccasins-porous.png"
+            Adjective="{{g-K sequence|porous}}"
+            Description="Like their namesake, they are scaly and temperamental; unlike their namesake, they are porous and worn on one's feet."
+            Chance="10"
+        />
     </object>
 </objects>
