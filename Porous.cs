@@ -6,24 +6,26 @@ namespace XRL.World.Parts
     public class helado_PorousCroccasins_Porous : IPart
     {
         public const string POROUS_DESCRIPTION = "Like their namesake, they are scaly and temperamental; unlike their namesake, they are porous and worn on one's feet.";
-        public int Chance = 10;
         public static Random RandomSource = null;
+        public int Chance = 100;
 
         public helado_PorousCroccasins_Porous()
         {
             if (RandomSource == null)
             {
-                RandomSource = XRL.Rules.Stat.GetSeededRandomGenerator(Seed: "helado_PorousCroccasins");
+                RandomSource = XRL.Rules.Stat.GetSeededRandomGenerator(
+                    Seed: "helado_PorousCroccasins"
+                );
             }
         }
 
-        public override bool WantEvent(int id, int cascade)
+        public override bool WantEvent(int id, int _)
         {
             return
                 id == GetDisplayNameEvent.ID ||
                 id == GetShortDescriptionEvent.ID ||
                 id == ObjectCreatedEvent.ID ||
-                base.WantEvent(id, cascade);
+                base.WantEvent(id, _);
         }
 
         public override bool HandleEvent(GetDisplayNameEvent @event)
