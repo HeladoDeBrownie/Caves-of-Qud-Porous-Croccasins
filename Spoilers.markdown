@@ -1,0 +1,4 @@
+- 10% of croccasins generate porous.
+- Porous croccasins have a distinct tile, name, and description from ordinary croccasins.
+- Porous croccasins spawn in exactly the same places as ordinary ones do.
+- The only mechanical difference this mod makes is stacking behavior. Ordinary croccasins do not stack with porous ones.
